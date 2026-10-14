@@ -17,6 +17,8 @@ import {
   Heart
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import ParticlesCanvas from './components/ParticlesCanvas';
+import OutcomeChart from './components/OutcomeChart';
 
 const TOWERS = [
   { id: 'lumina', name: 'The Lumina Towers (Tower A & B)', units: 656, clusterDay: 'Every Tuesday & Thursday', bookedToday: 7, address: '201 Folsom St, SF' },
@@ -137,59 +139,66 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(245,158,11,0.08),transparent_50%)] pointer-events-none" />
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-xs text-amber-300">
-            <Building2 className="w-4 h-4 text-amber-400" />
-            <span>Zero Commute Overhead • Master Atelier Stylists Clustered by Tower • 25% Resident Savings</span>
+      <section className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <ParticlesCanvas color="244, 114, 182" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(244,114,182,0.12),transparent_60%)] pointer-events-none" />
+        
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-pink-500/30 text-xs text-pink-300 font-mono shadow-lg shadow-pink-950/40">
+            <Building2 className="w-4 h-4 text-pink-400" />
+            <span>Zero Commute Overhead • Master Atelier Stylists Clustered by Tower • 45% Resident Savings</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Hyper-Local Apartment Tower Salon & Grooming Collective
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            Hyper-Local Apartment Tower <span className="bg-gradient-to-r from-pink-400 via-rose-300 to-amber-300 bg-clip-text text-transparent">Salon & Grooming Collective</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto font-normal leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
             Master hair stylists lose 40% of their billable week sitting in city traffic. SocietySalon batches appointments by residential high-rise. Top-tier stylists spend all of Tuesday in your tower, delivering 5-star cuts and blowouts right to your door with zero salon markups.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <a 
               href="#cluster-schedule" 
-              className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-lg shadow-amber-400/25 flex items-center gap-2"
+              className="px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-400 hover:to-rose-400 text-white font-bold text-sm rounded-xl transition-all shadow-xl shadow-pink-500/30 flex items-center gap-2 hover:scale-[1.02]"
             >
               <span>Book Tower Resident Slot</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a 
               href="#density-math" 
-              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm rounded-xl transition-all flex items-center gap-2"
+              className="px-6 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-pink-500/30 font-semibold text-sm rounded-xl transition-all flex items-center gap-2 hover:border-pink-400/60"
             >
-              <TrendingUp className="w-4 h-4 text-amber-400" />
+              <TrendingUp className="w-4 h-4 text-pink-400" />
               <span>View Stylist Density Arbitrage</span>
             </a>
           </div>
 
           {/* Market TAM & Density Metrics */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-              <div className="text-2xl font-black text-amber-400">$625M</div>
+            <div className="bg-slate-900/80 border border-pink-500/20 rounded-xl p-4 backdrop-blur-md">
+              <div className="text-2xl font-black text-pink-400">$625M</div>
               <div className="text-xs text-slate-400 font-medium">Residential Tower Salon TAM</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-4 backdrop-blur-md">
               <div className="text-2xl font-black text-white">2,500</div>
               <div className="text-xs text-slate-400 font-medium">Target Luxury Towers</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-              <div className="text-2xl font-black text-amber-400">0 Mins</div>
+            <div className="bg-slate-900/80 border border-pink-500/20 rounded-xl p-4 backdrop-blur-md">
+              <div className="text-2xl font-black text-pink-400">0 Mins</div>
               <div className="text-xs text-slate-400 font-medium">Resident Travel Time</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-              <div className="text-2xl font-black text-white">25%</div>
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-4 backdrop-blur-md">
+              <div className="text-2xl font-black text-white">45%</div>
               <div className="text-xs text-slate-400 font-medium">Collective Density Discount</div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Julien Bek $1:$6 Sequoia Framework + Bklit UI Outcome Engine */}
+      <section className="px-4 sm:px-6 lg:px-8">
+        <OutcomeChart onCtaClick={() => setIsCabModalOpen(true)} />
       </section>
 
       {/* Feature 1: Cluster Booking Engine */}
